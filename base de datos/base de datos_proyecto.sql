@@ -2,17 +2,26 @@ create database agromoise;
 use agromoise;
 
 create table clientes (
-cod_cliente char(8) primary key,
+cod_cliente int(8) primary key auto_increment,
 nombre varchar(255),
 apellidos varchar(255),
 telefono char(9) null,
 direccion varchar(255),
-roll enum('admin','usuario')
+roll enum('admin','usuario'),
+usuario varchar (255),
+contraseña varchar (255)
 );
+drop table proveedores;
+
+describe clientes;
+
+alter table clientes
+modify cod_cliente primary key AUTO_INCREMENT;
+
 
 create table ventas (
 cod_ventas char(255) primary key,
-cod_cliente char(8),
+cod_cliente int(8),
 fecha date,
 valor_total char(9), 
 foreign key fk1 (cod_cliente) references clientes (cod_cliente)
@@ -39,3 +48,7 @@ create table proveedores (
 cod_proveedor char(9) primary key,
 nombre varchar(255)
 );
+alter table contiene add primary key (cod_ventas, cod_producto);
+select * from clientes;
+insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, contraseña) values ('ana', 'sivianes', '954394481', 'Caño Ronco Nº 29', 'usuario', 'ana', '1234' );
+INSERT INTO clientes VALUES('inma','inma','culada','012345679','su casa','usuario','inma','123');
