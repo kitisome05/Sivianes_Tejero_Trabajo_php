@@ -13,7 +13,7 @@
     </style>
   </head>
   <body style="margin-left: 450px">
-    <a href="principal.php"><img src="logo_actualizado.jpg" style="width:250px;height:80px;margin-left:100px;"></a>
+    <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" style="width:250px;height:80px;margin-left:100px;"></a>
     <?php if (!isset($_POST["usuario"])) : ?>
       <form method="post">
         <fieldset>

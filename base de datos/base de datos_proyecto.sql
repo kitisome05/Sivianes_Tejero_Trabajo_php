@@ -50,5 +50,4 @@ nombre varchar(255)
 );
 alter table contiene add primary key (cod_ventas, cod_producto);
 select * from clientes;
-insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, contraseña) values ('ana', 'sivianes', '954394481', 'Caño Ronco Nº 29', 'usuario', 'ana', '1234' );
-INSERT INTO clientes VALUES('inma','inma','culada','012345679','su casa','usuario','inma','123');
+insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, contraseña) values ('admin', 'admin', '696859185', 'Caño Ronco Nº 29', 'admin', 'admin', 'admin' );
