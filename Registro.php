@@ -23,7 +23,7 @@
           <span>Telefono:</span><input type="number" name="telefono" required><br>
           <span>Dirección:</span><input type="text" name="direccion"><br>
           <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
-          <span>Contraseña:</span><input type="password" name="contraseña" required><br>
+          <span>Contraseña:</span><input type="password" name="contrasena" required><br>
 
 
 
@@ -38,20 +38,33 @@
           var_dump($_POST);
 
           //CREATING THE CONNECTION
-          $connection = new mysqli("192.168.1.145", "root", "Admin2015", "tf", 3316);
+          $connection = new mysqli("192.168.1.145", "root", "Admin2015", "agromoise", 3316);
 
          //TESTING IF THE CONNECTION WAS RIGHT
          if ($connection->connect_errno) {
           printf("Connection failed: %s\n", $connection->connect_error);
-        exit();
-   }
+         exit();
+        }
 
-   $codigo=$_POST['usuario'];
-   $consulta= "INSERT INTO clientes VALUES('$codigo','".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['telefono']."','".$_POST['direccion']."','usuario','".$_POST['usuario']."','".$_POST['contraseña']."');";
+   var_dump($_POST);
+   $pass=$_POST['contrasena'];
+   $consulta= "INSERT INTO clientes (cod_cliente,nombre, apellidos, telefono, direccion, roll, usuario, contrasena)
+   VALUES(null,'".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['telefono']."','".$_POST['direccion'].
+   "','usuario','".$_POST['usuario']."',md5('".$pass."'))";
 
    var_dump($consulta);
 
-   $result = $connection->query($consulta);
+
+    if ($result = $connection->query($consulta)) {
+      echo "CONSULTA CORRECTO";
+      header("Location: principal.php");
+    } else {
+      echo "NO";
+      echo $connection->error;
+    }
+
+    var_dump($result);
+
       ?>
 
     <?php endif ?>

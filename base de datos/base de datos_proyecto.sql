@@ -51,3 +51,7 @@ nombre varchar(255)
 alter table contiene add primary key (cod_ventas, cod_producto);
 select * from clientes;
 insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, contraseña) values ('admin', 'admin', '696859185', 'Caño Ronco Nº 29', 'admin', 'admin', 'admin' );
+
+alter table clientes change contraseña contrasena varchar(255);
+
+describe clientes;

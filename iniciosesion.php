@@ -19,29 +19,12 @@
     <?php
         if (isset($_POST["usuario"])) {
 
-          $connection = new mysqli("192.168.1.145", "root", "Admin2015", "tf", 3316);
+          $connection = new mysqli("192.168.1.145", "root", "Admin2015", "agromoise", 3316);
 
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
           }
-
-          $consulta="select * from clientes where
-    username='".$_POST["usuario"]."' and password=md5('".$_POST["contraseña"]."');";
-
-    if ($result = $connection->query($consulta)) {
-    //No rows returned
-    if ($result->num_rows===0) {
-      echo "LOGIN INVALIDO";
-    } else {
-      //VALID LOGIN. SETTING SESSION VARS
-      $_SESSION["usuario"]=$_POST["usuario"];
-      $_SESSION["language"]="es";
-      header("Location: principal.php");
-    }
-    } else {
-    echo "Wrong Query";
-    }
     }
     ?>
 
@@ -52,7 +35,7 @@
         <fieldset>
           <legend style="margin-left:170px">Inisiar sesion</legend>
           <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
-          <span>Contraseña:</span><input type="text" name="contraseña" required><br>
+          <span>Contraseña:</span><input type="password" name="contrasena" required><br>
           <p style="margin-left:170px"><input type="submit" value="Enviar"></p>
         </fieldset>
       </form>
@@ -62,7 +45,27 @@
           echo "<h3>Showing data coming from the form</h3>";
           var_dump($_POST);
       ?>
+      <?php
+      // Session
+      $consulta="select * from clientes where
+      usuario='".$_POST["usuario"]."' and contrasena=md5('".$_POST["contrasena"]."');";
 
+      var_dump($consulta);
+      // Comprobando la conexion
+       if ($result = $connection->query($consulta)) {
+         //Si es invalido
+         if ($result->num_rows===0) {
+                echo "LOGIN INVALIDO";
+              } else {
+                $_SESSION["usuario"]=$_POST["usuario"];
+                $_SESSION["contrasena"]=$_POST["contrasena"];
+
+                header("Location: principal.php");
+      }
+      } else {
+      echo "Wrong Query";
+      }
+      ?>
     <?php endif ?>
 
 </body>
