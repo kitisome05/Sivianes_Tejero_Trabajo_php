@@ -56,11 +56,18 @@
          //Si es invalido
          if ($result->num_rows===0) {
                 echo "LOGIN INVALIDO";
+                session_destroy();
+                header("Location: principal.php");
               } else {
                 $_SESSION["usuario"]=$_POST["usuario"];
-                $_SESSION["contrasena"]=$_POST["contrasena"];
+                $obj =$result->fetch_object();
 
-                header("Location: principal.php");
+                if ($obj->roll=="admin"){
+                  $_SESSION["roll"] = "admin";
+                } else {
+                  $_SESSION["roll"] = "usuario";
+                }
+               header("Location: principal.php");
       }
       } else {
       echo "Wrong Query";

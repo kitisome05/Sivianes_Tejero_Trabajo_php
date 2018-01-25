@@ -27,9 +27,39 @@
           }
 }
 ?>
+<?php
+
+
+   if($_SESSION['roll']=='admin') {
+
+   }
+
+   if (!isset($_SESSION['usuario'])) {
+
+   }
+
+  $v1=0;
+  if (isset($_SESSION["roll"])) {
+    $v1 = $_SESSION["roll"];
+    echo ($v1);
+  }
+  if ($_SESSION['roll']=='admin') {
+    ?>
+    <a href="/admin/modificar.php" style="padding-right: 2cm;"><button type="button">Modificar Productos</button></a>
+    <a href="admin/logout.php" style="padding-right: 2cm;"><button type="button">Cerrar session</button></a>
+<?php
+}elseif ($_SESSION['roll']=='usuario') {
+?>
+<a href="admin/logout.php" style="padding-right: 2cm;"><button type="button">Cerrar session</button></a>
+<?php
+} elseif (!isset($_SESSION['usuario'])) {
+      ?>
+    <a href="iniciosesion.php" style="padding-right: 2cm;"><button type="button">Iniciar sesion</button></a>
+    <a href="Registro.php" style="padding-right: 2cm;"><button type="button">Registrarse</button></a>
+<?php
+  }
+?>
     <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
-     <a href="iniciosesion.php" style="padding-right: 2cm;"><button type="button">Iniciar sesion</button></a>
-      <a href="Registro.php" style="padding-right: 2cm;"><button type="button">Registrarse</button></a>
 
       <div>
         <a href="remolques.php"><img src="imagenes/remolques/1.jpg" style="width:200px;height:80px"></a>
