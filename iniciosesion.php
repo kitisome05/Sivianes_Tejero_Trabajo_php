@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" type="text/css" href="css.css">
   <style>
       span {
         width: 200px;
@@ -15,11 +15,11 @@
       }
     </style>
   </head>
-  <body style="margin-left: 450px">
+  <body>
     <?php
         if (isset($_POST["usuario"])) {
 
-          $connection = new mysqli("192.168.1.145", "root", "Admin2015", "agromoise", 3316);
+          $connection = new mysqli("localhost", "root", "Admin2015", "agromoise", 3316);
 
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
@@ -29,14 +29,14 @@
     ?>
 
 
-    <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" style="width:250px;height:80px;margin-left:100px;"></a>
+    <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" id="logo-tamaño"></a>
     <?php if (!isset($_POST["usuario"])) : ?>
       <form method="post">
         <fieldset>
-          <legend style="margin-left:170px">Inisiar sesion</legend>
+          <legend>Inisiar sesion</legend>
           <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
           <span>Contraseña:</span><input type="password" name="contrasena" required><br>
-          <p style="margin-left:170px"><input type="submit" value="Enviar"></p>
+          <p><input type="submit" value="Enviar"></p>
         </fieldset>
       </form>
     <?php else: ?>

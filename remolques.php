@@ -1,10 +1,13 @@
+<?php
+  session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" type="text/css" href="css.css">
   <style>
       span {
         width: 200px;
@@ -13,16 +16,80 @@
     </style>
   </head>
   <body>
-    <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
-     <a href="iniciosesion.php" style="padding-right: 2cm;"><button type="button">Inisio sesion</button></a>
-      <a href="Registro.php" style="padding-right: 2cm;"><button type="button">Registrarse</button></a>
+    <?php //Conexion
+          $connection = new mysqli("localhost", "root", "Admin2015", "agromoise", 3316);
 
-    <div>
-        <img src="imagenes/remolques/uneje/uneje-r50.PNG" style="width:400px;height:200px">
-        <h3>DETALLES TÉCNICOS</h3>
-        <p>Peso total: 6750 kg</p>
-        <p>Velocidad máxima: 40 km/h</p>
-    </div>
+          if ($connection->connect_errno) {
+              printf("Connection failed: %s\n", $connection->connect_error);
+              exit();
+          }
+?>
+<?php
+
+
+  // if($_SESSION['roll']=='admin') {
+
+   //}
+
+   if (!isset($_SESSION['usuario'])) {
+
+   }
+
+  $v1=0;
+  if (isset($_SESSION["roll"])) {
+    $v1 = $_SESSION["roll"];
+    echo ($v1);
+  }
+  if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
+    ?>
+    <a href="/admin/modificar.php" id="boton"><button type="button">Modificar Productos</button></a>
+    <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
+<?php
+}elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
+?>
+<a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
+<?php
+} elseif (!isset($_SESSION['usuario'])) {
+      ?>
+    <a href="iniciosesion.php" id="boton"><button type="button">Iniciar sesion</button></a>
+    <a href="Registro.php" id="boton"><button type="button">Registrarse</button></a>
+<?php
+  }
+?>
+    <?php
+    if (empty($_GET)) {
+      echo "No tengo datos del cliente";
+      exit();
+
+    }
+     ?>
+     <?php
+     $query="SELECT * from productos WHERE tipo=".$_GET["tipo"]."";
+     echo $query;
+   if ($result = $connection->query($query)) {
+
+       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+
+      ?>
+
+    <a href="principal.php">
+      <img src="imagenes/logo_actualizado.jpg">
+    </a>
+
+    <table>
+      <?php
+        while($obj = $result->fetch_object()) {
+          echo "<tr>";
+            echo "<td>".$obj->imagen."</td>";
+            echo "<td>".$obj->nombre."</td>";
+          echo "</tr>";
+        }
+        $result->close();
+        unset($obj);
+        unset($connection);
+      }
+       ?>
+    </table>
 
   </body>
   </html>

@@ -13,15 +13,19 @@
     </style>
   </head>
   <body>
-    <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
-     <a href="iniciosesion.php"><button type="button">Iniciar sesion</button></a>
+    <a href="/Sivianes_Tejero_Trabajo_php/principal.php">
+      <img src="/Sivianes_Tejero_Trabajo_php/imagenes/logo_actualizado.jpg">
+    </a>
+     <a href="iniciosesion.php"><button type="button">Inisio sesion</button></a>
       <a href="Registro.php"><button type="button">Registrarse</button></a>
 
     <div>
-        <img src="imagenes/ordeñadoras/1.jpg" id="producto-t">
+        <img src="/Sivianes_Tejero_Trabajo_php/imagenes/remolques/uneje/uneje-r50.PNG"
+        id="producto-t">
         <h3>DETALLES TÉCNICOS</h3>
         <p>Peso total: 6750 kg</p>
         <p>Velocidad máxima: 40 km/h</p>
     </div>
+
   </body>
   </html>

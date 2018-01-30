@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+#boton {
+  padding-right: 2cm;
+}
+
+#imagen-tamaño {
+  width:200px;
+  height:80px;
+}
+#imagen-position {
+  margin-left:50px;
+}
+#logo-tamaño {
+  width:250px;
+  height:80px;
+}
+#producto-t {
+  width:400px;
+  height:200px;
+}
+#registro {
+  margin-left:170px;
+}
