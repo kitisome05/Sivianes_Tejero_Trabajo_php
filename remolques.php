@@ -42,15 +42,18 @@
   }
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
+    <a href="principal.php" id="boton"><button type="button">Inicio</button></a>
     <a href="/admin/modificar.php" id="boton"><button type="button">Modificar Productos</button></a>
     <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
 <?php
 }elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
 ?>
+<a href="principal.php" id="boton"><button type="button">Inicio</button></a>
 <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
 <?php
 } elseif (!isset($_SESSION['usuario'])) {
       ?>
+    <a href="principal.php" id="boton"><button type="button">Inicio</button></a>
     <a href="iniciosesion.php" id="boton"><button type="button">Iniciar sesion</button></a>
     <a href="Registro.php" id="boton"><button type="button">Registrarse</button></a>
 <?php
@@ -64,11 +67,11 @@
     }
      ?>
      <?php
-     $query="SELECT * from productos WHERE tipo=".$_GET["tipo"]."";
-     echo $query;
+     $query="SELECT * from productos WHERE tipo='".$_GET["tipo"]."'";
+    //  echo $query;
    if ($result = $connection->query($query)) {
 
-       printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+      // printf("<p>The select query returned %d rows.</p>", $result->num_rows);
 
       ?>
 
@@ -80,8 +83,14 @@
       <?php
         while($obj = $result->fetch_object()) {
           echo "<tr>";
-            echo "<td>".$obj->imagen."</td>";
+            echo "<td><img src=".$obj->imagen."></td>";
+          echo "</tr>";
+          echo "<tr>";
             echo "<td>".$obj->nombre."</td>";
+          echo "</tr>";
+          echo "<tr>";
+            echo "<td>".$obj->descripcion."</td>";
+            echo "<td>".$obj->precio_unidad."</td>";
           echo "</tr>";
         }
         $result->close();

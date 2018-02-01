@@ -44,10 +44,13 @@ precio_unidad char(9),
 cod_proveedor int(11),
 foreign key fk1 (cod_proveedor) references proveedores (cod_proveedor)
 );
+alter table productos add imagen varchar(255);
 select * from productos;
 SELECT * from productos WHERE tipo='remolques';
 insert into productos (tipo, nombre, descripcion, precio_unidad, cod_proveedor) 
-values ('remolques', 'r35', 'Peso total: 6750 kg Velocidad máxima: 40 km/h','10€','1');
+values ('mezclador', '1,5 M', 'Este es el mezclador mas pequeño que tenemos 1,5 M','900€','1');
+SELECT * from productos WHERE tipo="ordeñadoras";
+SELECT * from productos WHERE tipo="remolques";
 
 create table proveedores (
 cod_proveedor int(11) primary key auto_increment,
