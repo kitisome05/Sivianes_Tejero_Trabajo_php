@@ -49,6 +49,7 @@ select * from productos;
 SELECT * from productos WHERE tipo='remolques';
 insert into productos (tipo, nombre, descripcion, precio_unidad, cod_proveedor) 
 values ('mezclador', '1,5 M', 'Este es el mezclador mas pequeño que tenemos 1,5 M','900€','1');
+INSERT INTO VEHICULOS(nombre,tipo,descripcion,precio_unidad,cod_proveedor) VALUES ('ejemplo','remolque','hola','12','1')
 SELECT * from productos WHERE tipo="ordeñadoras";
 SELECT * from productos WHERE tipo="remolques";
 
@@ -67,3 +68,7 @@ describe clientes;
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select * from productos;
+SELECT * from productos where cod_producto='2';
+
+SELECT * from productos WHERE tipo='ordeñadoras';
+

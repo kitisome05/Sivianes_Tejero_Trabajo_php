@@ -18,7 +18,7 @@
   <body>
     <?php //Conexion
           $connection = new mysqli("localhost", "root", "Admin2015", "agromoise", 3316);
-
+          $connection->set_charset("utf8");
           if ($connection->connect_errno) {
               printf("Connection failed: %s\n", $connection->connect_error);
               exit();
@@ -43,7 +43,6 @@
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
     <a href="principal.php" id="boton"><button type="button">Inicio</button></a>
-    <a href="/admin/modificar.php" id="boton"><button type="button">Modificar Productos</button></a>
     <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
 <?php
 }elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {

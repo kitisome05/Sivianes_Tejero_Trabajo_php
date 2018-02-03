@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+#icono{
+  width:20px;
+  height:20px;
+}
 #boton {
   padding-right: 2cm;
 }
