@@ -80,13 +80,14 @@ while($obj = $result->fetch_object()) {
       echo "<td>".$obj->cod_proveedor."</td>";
       echo "<td>".$obj->imagen."</td>";
       echo
-          "<td>"
-              ?>
-                <a href="admin/añadir_producto.php"><img src="/Sivianes_Tejero_Trabajo_php/imagenes/iconos/1.png" id="icono"></a>
-                <a href="admin/editar_productos.php"><img src="/Sivianes_Tejero_Trabajo_php/imagenes/iconos/2.png" id="icono"></a>
-                <a href=""><img src="/Sivianes_Tejero_Trabajo_php/imagenes/iconos/3.png" id="icono"></a>
-              <?php
-          "</td>";
+          "<td>";
+              echo" <a href='añadir_producto.php'>
+              <img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/1.png' id='icono'></a>";
+              echo "  <a href='editarproductos.php?cod_producto=".$obj->cod_producto."'>
+              <img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/2.png' id='icono'></a>";
+              echo "<a href=''><img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/3.png' id='icono'></a>";
+
+      echo  "</td>";
     echo "</tr>";
 }
 $result->close();
