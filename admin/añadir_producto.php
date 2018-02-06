@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
     <style>
       span {
         width: 100px;
@@ -54,7 +55,7 @@
 
   $query = "INSERT INTO productos (nombre,tipo,descripcion,precio_unidad,cod_proveedor)
   VALUES ('$nombre','$tipo','$descripcion','$precio_unidad','$cod_proveedor')";
-
+  header("Location: administrar_productos.php");
   echo $query;
 
   if ($connection->query($query)) {

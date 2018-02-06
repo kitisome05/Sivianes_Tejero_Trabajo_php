@@ -2,12 +2,14 @@
   session_start();
  ?>
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
   <style>
       span {
         width: 200px;
@@ -43,7 +45,6 @@
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
     <a href="principal.php" id="boton"><button type="button">Inicio</button></a>
-    <a href="/admin/modificar.php" id="boton"><button type="button">Modificar Productos</button></a>
     <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
 <?php
 }elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
@@ -71,7 +72,7 @@
     //  echo $query;
    if ($result = $connection->query($query)) {
 
-    //   printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+      // printf("<p>The select query returned %d rows.</p>", $result->num_rows);
 
       ?>
 

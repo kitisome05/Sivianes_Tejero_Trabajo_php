@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="css.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
   <style>
       span {
         width: 200px;
@@ -16,7 +18,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container">
     <?php //Conexion
       //  if (isset($_POST["usuario"])) {
 
@@ -27,21 +29,22 @@
               exit();
           }
 ?>
+
+<div name="logo">
+    <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
+</div>
+<div class="col-md-8" class="navbar navbar-inverse" role="navigation">
 <?php
-
-
   // if($_SESSION['roll']=='admin') {
 
    //}
-
    if (!isset($_SESSION['usuario'])) {
-
    }
 
   $v1=0;
   if (isset($_SESSION["roll"])) {
     $v1 = $_SESSION["roll"];
-    echo ($v1);
+    echo ("<b>User:</b> $v1");
   }
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
@@ -60,7 +63,7 @@
 <?php
   }
 ?>
-    <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
+</div>
 
       <div>
         <a href='remolques.php?tipo=remolques'><img src="imagenes/remolques/1.jpg" id="imagen-tamaño"></a>

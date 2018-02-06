@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
     <link rel="stylesheet" type="text/css" href="/Sivianes_Tejero_Trabajo_php/css.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
     <style>
       span {
         width: 100px;
@@ -48,6 +50,7 @@
             if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
               ?>
               <a href="/Sivianes_Tejero_Trabajo_php/principal.php" id="boton"><button type="button">Inicio</button></a>
+              <a href='añadir_producto.php'><button type="button">Añadir nuevo producto</button></a>
               <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
           <?php } ?>
 
@@ -81,11 +84,9 @@ while($obj = $result->fetch_object()) {
       echo "<td>".$obj->imagen."</td>";
       echo
           "<td>";
-              echo" <a href='añadir_producto.php'>
-              <img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/1.png' id='icono'></a>";
               echo "  <a href='editarproductos.php?cod_producto=".$obj->cod_producto."'>
               <img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/2.png' id='icono'></a>";
-              echo "<a href=''><img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/3.png' id='icono'></a>";
+              echo "<a href='borrar_producto.php?cod_producto=".$obj->cod_producto."'><img src='/Sivianes_Tejero_Trabajo_php/imagenes/iconos/3.png' id='icono'></a>";
 
       echo  "</td>";
     echo "</tr>";

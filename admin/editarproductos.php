@@ -7,7 +7,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href=" ">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
     <style>
       span {
         width: 100px;
@@ -42,12 +43,10 @@
       if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
         ?>
         <a href="/Sivianes_Tejero_Trabajo_php/principal.php" id="boton"><button type="button">Inicio</button></a>
-        <a href="/admin/añadir.php" id="boton"><button type="button">Añadir Producto</button></a>
-        <a href="/admin/borrar.php" id="boton"><button type="button">Borrar Producto</button></a>
         <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
     <?php } ?>
 
-    <?php if (!isset($_POST["cod_producto"])) : ?>
+    <?php if (!isset($_POST["codigo"])) : ?>
 
       <?php
 
@@ -92,7 +91,7 @@
             <legend>Información del Producto</legend>
             <span>Nombre:</span><input value='<?php echo $nombre; ?>' type="text" name="nombre" required><br>
             <span>Tipo:</span><input value='<?php echo $tipo; ?>'type="text" name="tipo" required><br>
-            <span>Descripción:</span><input type="text" value='<?php echo $descripcion; ?>'name="descripcion" required><br>
+            <span>Descripción:</span><textarea name="descripcion" required><?php echo $descripcion; ?></textarea><br>
             <span>Precio_Unidad:</span><input type="text" name="precio_unidad" value='<?php echo $precio_unidad; ?>'><br>
             <span>Imagen: </span><input type="text" name="imagen" value='<?php echo $imagen; ?>'><br>
             <input type="hidden" name="codigo" value='<?php echo $codigo; ?>'>
@@ -124,6 +123,8 @@
         $query="update productos set tipo='$tipo',nombre='$nombre',
         descripcion='$descripcion',precio_unidad='$precio_unidad',imagen='$imagen'
         WHERE cod_producto='$codigo'";
+
+        header("Location: administrar_productos.php");
 
         echo $query;
         if ($result = $connection->query($query)) {
