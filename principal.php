@@ -33,49 +33,84 @@
 <div name="logo">
     <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
 </div>
-<div class="col-md-8" class="navbar navbar-inverse" role="navigation">
 <?php
   // if($_SESSION['roll']=='admin') {
 
    //}
    if (!isset($_SESSION['usuario'])) {
    }
-
-  $v1=0;
-  if (isset($_SESSION["roll"])) {
-    $v1 = $_SESSION["roll"];
-    echo ("<b>User:</b> $v1");
-  }
+   //Usuario iniciado como Admin/Usuario
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
-    <a href="principal.php" id="boton"><button type="button">Inicio</button></a>
-    <a href="admin/administrar_productos.php" id="boton"><button type="button">Administrar Productos</button></a>
-    <a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
-<?php
-}elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
-?>
-<a href="admin/logout.php" id="boton"><button type="button">Cerrar session</button></a>
-<?php
-} elseif (!isset($_SESSION['usuario'])) {
-      ?>
-    <a href="iniciosesion.php" id="boton"><button type="button">Iniciar sesion</button></a>
-    <a href="Registro.php" id="boton"><button type="button">Registrarse</button></a>
-<?php
-  }
-?>
+    <?php// Menu de Administrador ?>
+<div class="row">
+      <div class="col-md-9">
+            <a href="principal.php"><button type="button">Inicio</button></a>
+            <a href="admin/administrar_productos.php"><button type="button">Administrar Productos</button></a>
+      </div>
+      <div class="col-md-3">
+            <?php
+            $v1=0;
+            if (isset($_SESSION["roll"])) {
+            $v1 = $_SESSION["roll"];
+            echo ("<b>User:</b> $v1");
+            }
+            ?>
+              <a href="admin/logout.php"><button type="button">Cerrar session</button></a>
+      </div>
 </div>
-
-      <div>
-        <a href='remolques.php?tipo=remolques'><img src="imagenes/remolques/1.jpg" id="imagen-tamaño"></a>
-        <p><a href='remolques.php?tipo="remolques"'<p id="imagen-position">Remolques</p></a></p>
+      <?php
+      }elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
+      ?>
+<div class="row">
+      <div class="col-md-9">
+          <a href="principal.php"><button type="button">Inicio</button></a>
       </div>
-      <div>
-        <a href='ordeñadoras.php?tipo=ordeñadoras'><img src="imagenes/ordeñadoras/1.jpg" id="imagen-tamaño"></a>
-        <p><a href='ordeñadoras.php?tipo="ordeñadoras"'<p id="imagen-position">Ordeñadoras</p></a></p>
-      </div>
-      <div>
-        <a href='mezclador.php?tipo=mezclador'><img src="imagenes/mezclador/1.PNG" id="imagen-tamaño"></a>
-        <p><a href='mezclador.php?tipo="mezclador"'<p id="imagen-position">Mezclador</p></a></p>
+      <div class="col-md-3">
+            <?php
+            $v1=0;
+            if (isset($_SESSION["roll"])) {
+            $v1 = $_SESSION["roll"];
+            echo ("<b>User:</b> $v1");
+            }
+            ?>
+          <a href="admin/logout.php"><button type="button">Cerrar session</button></a>
+    </div>
+</div>
+      <?php
+      } elseif (!isset($_SESSION['usuario'])) {
+            ?>
+<div class="row">
+    <div class="col-md-8">
+          <a href="principal.php"><button type="button">Inicio</button></a>
+    </div>
+    <div class="col-md-4">
+          <?php
+          $v1=0;
+          if (empty($_SESSION["roll"])) {
+          echo ("<b>User:</b> No logged");
+          }
+          ?>
+          <a href="iniciosesion.php"><button type="button">Iniciar sesion</button></a>
+          <a href="Registro.php"><button type="button">Registrarse</button></a>
+    </div>
+</div>
+      <?php
+        }
+      ?>
+    <div class="row" id="productos">
+        <div class="col-md-4">
+          <a href='remolques.php?tipo=remolques'><img src="imagenes/remolques/1.jpg" id="imagen-tamaño"></a>
+          <p><a href='remolques.php?tipo="remolques"'<p id="imagen-position">Remolques</p></a></p>
+        </div>
+        <div class="col-md-4">
+          <a href='ordeñadoras.php?tipo=ordeñadoras'><img src="imagenes/ordeñadoras/1.jpg" id="imagen-tamaño"></a>
+          <p><a href='ordeñadoras.php?tipo="ordeñadoras"'<p id="imagen-position">Ordeñadoras</p></a></p>
+        </div>
+        <div class="col-md-4">
+          <a href='mezclador.php?tipo=mezclador'><img src="imagenes/mezclador/1.PNG" id="imagen-tamaño"></a>
+          <p><a href='mezclador.php?tipo="mezclador"'<p id="imagen-position">Mezclador</p></a></p>
+        </div>
       </div>
   </body>
 </html>

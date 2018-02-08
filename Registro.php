@@ -14,7 +14,7 @@
       }
     </style>
   </head>
-  <body style="margin-left: 450px">
+  <body class="container">
     <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" id="logo-tamaño"></a>
     <?php if (!isset($_POST["usuario"])) : ?>
       <form method="post">

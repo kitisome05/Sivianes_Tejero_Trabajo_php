@@ -72,4 +72,4 @@ SELECT * from productos where cod_producto='2';
 
 SELECT * from productos WHERE tipo='ordeñadoras';
 
-delete from productos where cod_producto=
+delete from productos where cod_producto='11';

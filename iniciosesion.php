@@ -17,7 +17,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container">
     <?php
         if (isset($_POST["usuario"])) {
 
@@ -33,26 +33,23 @@
 
     <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" id="logo-tamaño"></a>
     <?php if (!isset($_POST["usuario"])) : ?>
-      <form method="post">
-        <fieldset>
-          <legend>Inisiar sesion</legend>
-          <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
-          <span>Contraseña:</span><input type="password" name="contrasena" required><br>
-          <p><input type="submit" value="Enviar"></p>
-        </fieldset>
-      </form>
+      <div class="align-items-center">
+          <form method="post">
+            <fieldset>
+              <legend>Inisiar sesion</legend>
+              <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
+              <span>Contraseña:</span><input type="password" name="contrasena" required><br>
+              <p><input type="submit" value="Enviar"></p>
+            </fieldset>
+          </form>
+      </div>
     <?php else: ?>
 
-      <?php
-          echo "<h3>Showing data coming from the form</h3>";
-          var_dump($_POST);
-      ?>
       <?php
       // Session
       $consulta="select * from clientes where
       usuario='".$_POST["usuario"]."' and contrasena=md5('".$_POST["contrasena"]."');";
 
-      var_dump($consulta);
       // Comprobando la conexion
        if ($result = $connection->query($consulta)) {
          //Si es invalido
