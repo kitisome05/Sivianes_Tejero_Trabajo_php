@@ -1,24 +1,22 @@
 <?php
   session_start();
-  ?>
+ ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Passing info with POST and HTML FORMS using a single file.</title>
-    <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
-  <style>
+    <style>
       span {
-        width: 200px;
+        width: 100px;
         display: inline-block;
       }
     </style>
   </head>
-  <body class="container">
-    <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" id="logo-tamaño"></a>
+  <body>
     <?php if (!isset($_POST["usuario"])) : ?>
       <form method="post">
         <fieldset>
@@ -51,18 +49,15 @@
          exit();
         }
 
-   var_dump($_POST);
-   $pass=$_POST['contrasena'];
-   $consulta= "INSERT INTO clientes (cod_cliente,nombre, apellidos, telefono, direccion, roll, usuario, contrasena)
-   VALUES(null,'".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['telefono']."','".$_POST['direccion'].
-   "','usuario','".$_POST['usuario']."',md5('".$pass."'))";
-
-   var_dump($consulta);
-
+    var_dump($_POST);
+    $pass=$_POST['contrasena'];
+    $consulta= "INSERT INTO clientes (cod_cliente,nombre, apellidos, telefono, direccion, roll, usuario, contrasena)
+    VALUES(null,'".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['telefono']."','".$_POST['direccion'].
+    "','usuario','".$_POST['usuario']."',md5('".$pass."'))";
 
     if ($result = $connection->query($consulta)) {
       echo "CONSULTA CORRECTO";
-      header("Location: principal.php");
+      header("Location: administrar_clientes.php");
     } else {
       echo "NO";
       echo $connection->error;
@@ -73,6 +68,5 @@
       ?>
 
     <?php endif ?>
-
-</body>
-</html>
+  </body>
+  </html>

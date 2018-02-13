@@ -32,13 +32,13 @@
       <?php
       //  printf("<p>The select query returned %d rows.</p>", $result->num_rows);
 
-      $query="delete from productos where cod_producto='".$_GET["cod_producto"]."'";
+      $query="delete from clientes where cod_cliente='".$_GET["cod_cliente"]."'";
       echo $query;
-      var_dump($_GET['cod_producto']);
+      var_dump($_GET['cod_cliente']);
 
       if ($result = $connection->query($query)) {
         echo "Producto borrado";
-        header("Location: administrar_productos.php");
+        header("Location: administrar_clientes.php");
       } else {
         echo "error";
         echo $connection->error;

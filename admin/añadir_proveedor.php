@@ -23,20 +23,11 @@
     <fieldset>
       <legend>Información del nuevo producto</legend>
       <span>Nombre:</span><input type="text" name="nombre" required><br>
-      <span>Tipo:</span><select name="tipo">
-        <option value="remolques">Remolques</option>
-        <option value="ordeñadoras">Ordeñadoras</option>
-        <option value="mezclador">Mezclador</option>
-      </select><br>
-      <span>Descripción:</span><input type="text" name="descripcion" required><br>
-      <span>Precio:</span><input type="text" name="precio_unidad" required><br>
-      <span>Cod_proveedor:</span><select name="cod_proveedor"><option value="1">1</option></select>
       <p><input type="submit" value="Insertar"></p>
     </fieldset>
   </form>
 
 <?php else: ?>
-
   <?php
   $connection = new mysqli("localhost", "root", "Admin2015", "agromoise",3316);
   $connection->set_charset("uft8");
@@ -48,21 +39,17 @@
   }
 
   $nombre = $_POST["nombre"];
-  $tipo = $_POST["tipo"];
-  $descripcion = $_POST["descripcion"];
-  $precio_unidad = $_POST["precio_unidad"];
-  $cod_proveedor = $_POST["cod_proveedor"];
 
-  $query = "INSERT INTO productos (nombre,tipo,descripcion,precio_unidad,cod_proveedor)
-  VALUES ('$nombre','$tipo','$descripcion','$precio_unidad','$cod_proveedor')";
-  header("Location: administrar_productos.php");
+  $query = "INSERT INTO proveedores (nombre)
+  VALUES ('$nombre')";
+  header("Location: administrar_proveedores.php");
   echo $query;
 
   if ($connection->query($query)) {
 
-    echo "Producto insertado";
+    echo "Proveedor insertado";
 
-    $query = "SELECT * FROM productos";
+    $query = "SELECT * FROM proveedores";
 
     if ($result = $connection->query($query)) {
       echo "<table>";
@@ -73,17 +60,13 @@
           //PRINTING EACH ROW
           echo "<tr>";
             echo "<td>".$obj->nombre."</td>";
-            echo "<td>".$obj->tipo."</td>";
-            echo "<td>".$obj->descripcion."</td>";
-            echo "<td>".$obj->precio_unidad."</td>";
-            echo "<td>".$obj->cod_proveedor."</td>";
           echo "</tr>";
       }
       echo "</table>";
     }
 
   } else {
-    echo "ERROR AL INSERTAR PRODUCTO";
+    echo "ERROR AL INSERTAR PROVEEDOR";
   }
   ?>
 

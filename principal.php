@@ -47,6 +47,8 @@
       <div class="col-md-9">
             <a href="principal.php"><button type="button">Inicio</button></a>
             <a href="admin/administrar_productos.php"><button type="button">Administrar Productos</button></a>
+            <a href="admin/administrar_clientes.php"><button type="button">Administrar Clientes</button></a>
+            <a href="admin/administrar_proveedores.php"><button type="button">Administrar Proveedores</button></a>
       </div>
       <div class="col-md-3">
             <?php
