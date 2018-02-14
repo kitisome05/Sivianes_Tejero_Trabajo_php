@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <style>
       span {
         width: 200px;
@@ -91,9 +92,34 @@
           echo "</tr>";
           echo "<tr>";
             echo "<td>".$obj->descripcion."</td>";
+          echo "</tr>";
+          echo "<tr>";
             echo "<td>".$obj->precio_unidad."</td>";
           echo "</tr>";
+          echo"<tr>";
+            echo "<a href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'><button type='button'>Añadir al carro</button></a>";
+          echo "</tr>";
         }
+?>
+<script>
+        $(function() {
+           $("#quantity").text(0);
+           $("#button").click(function(event) {
+             event.preventDefault();
+             $.ajax({
+               url: $(this).attr("href"),
+             }).done(function(data) {
+                if (data=="OK") {
+                  $("#quantity").text(parseInt($("#quantity").text())+1);
+                } else {
+                  alert("Something went wrong!!!"+data);
+                }
+
+             });
+           });
+        });
+        </script>
+        <?php
         $result->close();
         unset($obj);
         unset($connection);
