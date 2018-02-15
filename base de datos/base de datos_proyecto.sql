@@ -68,6 +68,7 @@ describe clientes;
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select * from productos;
+select * from proveedores;
 SELECT * from productos where cod_producto='2';
 
 SELECT * from productos WHERE tipo='ordeñadoras';

@@ -1,5 +1,12 @@
 <?php
 
-  //WORK WITH SESSION AND/OR DATABASES
-  echo "FAIL";
+  session_start();
+
+  if (isset($_SESSION['carrito'][$_GET['cod_producto']])) {
+    $_SESSION['carrito'][$_GET['cod_producto']]++;
+  } else {
+    $_SESSION['carrito'][$_GET['cod_producto']]=1;
+  }
+
+  echo "OK";
 ?>

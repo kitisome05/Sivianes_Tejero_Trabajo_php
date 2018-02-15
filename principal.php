@@ -44,11 +44,11 @@
     ?>
     <?php// Menu de Administrador ?>
 <div class="row">
-      <div class="col-md-9">
-            <a href="principal.php"><button type="button">Inicio</button></a>
-            <a href="admin/administrar_productos.php"><button type="button">Administrar Productos</button></a>
-            <a href="admin/administrar_clientes.php"><button type="button">Administrar Clientes</button></a>
-            <a href="admin/administrar_proveedores.php"><button type="button">Administrar Proveedores</button></a>
+      <div class="col-md-9" >
+            <a href="principal.php">Inicio</a>
+            <a href="admin/administrar_productos.php">Administrar Productos</a>
+            <a href="admin/administrar_clientes.php">Administrar clientes</a>
+            <a href="admin/administrar_proveedores.php">Administrar proveedores</a>
       </div>
       <div class="col-md-3">
             <?php
@@ -58,7 +58,7 @@
             echo ("<b>User:</b> $v1");
             }
             ?>
-              <a href="admin/logout.php"><button type="button">Cerrar session</button></a>
+              <a href="admin/logout.php">Cerrar session</a>
       </div>
 </div>
       <?php
@@ -66,7 +66,7 @@
       ?>
 <div class="row">
       <div class="col-md-9">
-          <a href="principal.php"><button type="button">Inicio</button></a>
+          <a href="principal.php">Inicio</a>
       </div>
       <div class="col-md-3">
             <?php
