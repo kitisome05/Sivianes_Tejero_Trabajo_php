@@ -44,13 +44,15 @@
     ?>
     <?php// Menu de Administrador ?>
 <div class="row">
-      <div class="col-md-9" >
+      <div class="col-md-8" >
             <a href="principal.php">Inicio</a>
             <a href="admin/administrar_productos.php">Administrar Productos</a>
             <a href="admin/administrar_clientes.php">Administrar clientes</a>
             <a href="admin/administrar_proveedores.php">Administrar proveedores</a>
+            <a href="admin/administrar_ventas.php">Administrar Ventas</a>
       </div>
-      <div class="col-md-3">
+      <div class="col-md-4">
+            <a href="carrito.php">Carrito</a>
             <?php
             $v1=0;
             if (isset($_SESSION["roll"])) {
