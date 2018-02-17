@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="css.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   <style>
       span {
         width: 200px;
@@ -29,40 +30,55 @@
               exit();
           }
 ?>
-
 <div name="logo">
     <a href="principal.php"> <img src="imagenes/logo_actualizado.jpg"></a>
 </div>
 <?php
-  // if($_SESSION['roll']=='admin') {
-
-   //}
    if (!isset($_SESSION['usuario'])) {
    }
-   //Usuario iniciado como Admin/Usuario
+   //Usuario iniciado como Admin
   if (isset($_SESSION['roll']) && $_SESSION['roll']=='admin') {
     ?>
-    <?php// Menu de Administrador ?>
-<div class="row">
-      <div class="col-md-8" >
-            <a href="principal.php">Inicio</a>
-            <a href="admin/administrar_productos.php">Administrar Productos</a>
-            <a href="admin/administrar_clientes.php">Administrar clientes</a>
-            <a href="admin/administrar_proveedores.php">Administrar proveedores</a>
-            <a href="admin/administrar_ventas.php">Administrar Ventas</a>
-      </div>
-      <div class="col-md-4">
-            <a href="carrito.php">Carrito</a>
-            <?php
-            $v1=0;
-            if (isset($_SESSION["roll"])) {
-            $v1 = $_SESSION["roll"];
-            echo ("<b>User:</b> $v1");
-            }
-            ?>
-              <a href="admin/logout.php">Cerrar session</a>
-      </div>
-</div>
+
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Agromoise</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="principal.php">Inicio<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Administración
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="admin/administrar_productos.php">Administrar Productos</a>
+          <a class="dropdown-item" href="admin/administrar_clientes.php">Administrar clientes</a>
+          <a class="dropdown-item" href="admin/administrar_proveedores.php">Administrar proveedores</a>
+          <a class="dropdown-item" href="admin/administrar_ventas.php">Administrar Ventas</a>
+        </div>
+      </li>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <?php
+      $v1=0;
+      if (isset($_SESSION["roll"])) {
+      $v1 = $_SESSION["roll"]; ?>
+
+              <a class="nav-link" href="carrito.php"><img src="imagenes/iconos/carrito.jpg" id='icono'><span class="sr-only">(current)</span></a>
+
+
+              <?php echo ("<b>User:</b> $v1"); }?>
+
+
+              <a class="nav-link" href="admin/logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
+
+    </ul>
+  </div>
+</nav>
       <?php
       }elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {
       ?>
@@ -116,5 +132,8 @@
           <p><a href='mezclador.php?tipo="mezclador"'<p id="imagen-position">Mezclador</p></a></p>
         </div>
       </div>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -24,7 +24,7 @@
       <legend>Información de la nueva venta</legend>
       <span>Cod-cliente:</span><input type="text" name="cod-cliente" required><br>
       <span>Fecha:</span><input type="date" name="fecha" required><br>
-      <span>Precio-total:</span><input type="text" name="precio_total" required><br>
+      <span>Precio-total:</span><input type="text" name="valor_total" required><br>
       <p><input type="submit" value="Insertar"></p>
     </fieldset>
   </form>
@@ -41,33 +41,16 @@
   }
   $cod_cliente = $_POST["cod-cliente"];
   $fecha = $_POST["fecha"];
-  $precio_total = $_POST["precio_total"];
+  $valor_total = $_POST["valor_total"];
 
-$query = "INSERT INTO ventas (cod_cliente,fecha,precio_total)
-VALUES ('$cod_cliente','$fecha','$precio_total')";
+$query = "INSERT INTO ventas (cod_cliente,fecha,valor_total)
+VALUES ('$cod_cliente','$fecha','$valor_total')";
 // header("Location: administrar_ventas.php");
 
 if ($connection->query($query)) {
 
-  echo "Venta insertada";
-
-  $query = "SELECT * FROM ventas";
-
-  if ($result = $connection->query($query)) {
-    echo "<table>";
-
-    while($obj = $result->fetch_object()) {
-        //PRINTING EACH ROW
-        echo "<tr>";
-          echo "<td>".$obj->cod_cliente."</td>";
-          echo "<td>".$obj->fecha."</td>";
-          echo "<td>".$obj->precio_total."</td>";
-        echo "</tr>";
-    }
-    echo "</table>";
-  }} else {
-    echo "ERROR AL INSERTAR LA VENTA";
-  }
+  header("Location: administrar_ventas.php");
+}
 ?>
 
 <?php endif ?>

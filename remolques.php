@@ -92,7 +92,7 @@
           echo "</tr>";
           echo "<tr>";
             echo "<td>".$obj->precio_unidad."</td>";
-            echo "<a class='addtocart' href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'>Añadir al carro</a>";
+            echo "<td><a class='addtocart' href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'>Añadir al carro</a></td>";
           echo "</tr>";
         //  echo "<a href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'><button type='button'>Añadir al carro</button></a>";
         }
