@@ -92,7 +92,7 @@
               <a class="nav-link" href="principal.php">Inicio<span class="sr-only">(current)</span></a>
             </li>
           </div>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <div class="collapse navbar-collapse ml-5 pl-5" id="navbarNavDropdown">
             <?php
             $v1=0;
             if (isset($_SESSION["roll"])) {
@@ -129,14 +129,10 @@
 
                           <a class="nav-link" href="carrito.php"><img src="imagenes/iconos/carrito.jpg" id='icono'><span class="sr-only">(current)</span></a>
 
-
                           <?php echo ("<b>User:</b> No logged"); }?>
-
-
 
                           <a class="nav-link" href="iniciosesion.php">Iniciar sesion<span class="sr-only">(current)</span></a>
                           <a class="nav-link" href="Registro.php">Registrarse<span class="sr-only">(current)</span></a>
-
                 </ul>
               </div>
             </nav>
