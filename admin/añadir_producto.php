@@ -122,9 +122,10 @@
   $descripcion = $_POST["descripcion"];
   $precio_unidad = $_POST["precio_unidad"];
   $cod_proveedor = $_POST["cod_proveedor"];
+  $imagen = $_POST["imagen"];
 
-  $query = "INSERT INTO productos (nombre,tipo,descripcion,precio_unidad,cod_proveedor)
-  VALUES ('$nombre','$tipo','$descripcion','$precio_unidad','$cod_proveedor')";
+  $query = "INSERT INTO productos (nombre,tipo,descripcion,precio_unidad,cod_proveedor,imagen)
+  VALUES ('$nombre','$tipo','$descripcion','$precio_unidad','$cod_proveedor','$imagen')";
   header("Location: administrar_productos.php");
   echo $query;
 

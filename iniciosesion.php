@@ -66,8 +66,10 @@
 
                 if ($obj->roll=="admin"){
                   $_SESSION["roll"] = "admin";
+                  $_SESSION["codigo"] = $obj->cod_cliente;
                 } else {
                   $_SESSION["roll"] = "usuario";
+                  $_SESSION["codigo"] = $obj->cod_cliente;
                 }
                header("Location: principal.php");
       }
