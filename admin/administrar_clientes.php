@@ -47,7 +47,7 @@
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                   <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="/Sivianes_Tejero_Trabajo_php/principal.php">Inicio <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="añadir_producto.php">Añadir Nuevo Cliente</a>
+                    <a class="nav-item nav-link" href="añadir_cliente.php">Añadir Nuevo Cliente</a>
                   </div>
                 </div>
                 <div class="collapse navbar-collapse ml-5 pl-5" id="navbarNavDropdown">
