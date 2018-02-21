@@ -99,20 +99,55 @@ if ($result = $connection->query($query))  {
   exit();
 }
 ?>
-
-<form method="post">
-  <fieldset>
-    <legend>Información del cliente</legend>
-    <span>Usuario:</span><input value='<?php echo $usuario; ?>' type="text" name="usuario" required><br>
-    <span>Contraseña:</span><input value='<?php echo $contrasena; ?>'type="password" name="contraseña" required><br>
-    <span>Nombre:</span><input type="text" name="nombre" value='<?php echo $nombre; ?>'><br>
-    <span>Apellidos:</span><input type="text" name="apellidos" value='<?php echo $apellidos; ?>'><br>
-    <span>Teléfono: </span><input type="text" name="telefono" value='<?php echo $telefono; ?>'><br>
-    <span>Dirección: </span><input type="text" name="direccion" value='<?php echo $direccion; ?>'><br>
+<div class="container">
+  <legend>Edición de Cliente</legend>
+  <form method="post">
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Usuario</label>
+      <div class="col-sm-10">
+        <input type="text" name="usuario" class="form-control" id="inlineFormInput" value='<?php echo $usuario; ?>'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Contraseña</label>
+      <div class="col-sm-10">
+        <input type="password" name="contraseña" class="form-control" id="inlineFormInput" value='<?php echo $contrasena; ?>'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Nombre</label>
+      <div class="col-sm-10">
+        <input type="text" name="nombre" class="form-control" id="inlineFormInput" value='<?php echo $nombre; ?>'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Apellidos</label>
+      <div class="col-sm-10">
+        <input type="text" name="apellidos" class="form-control" id="inlineFormInput" value='<?php echo $apellidos; ?>'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Telefono</label>
+      <div class="col-sm-10">
+        <input type="text" name="telefono" class="form-control" id="inlineFormInput" value='<?php echo $telefono; ?>'>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Direccion</label>
+      <div class="col-sm-10">
+        <input type="text" name="direccion" class="form-control" id="inlineFormInput" value='<?php echo $direccion; ?>'>
+      </div>
+    </div>
     <input type="hidden" name="codigo" value='<?php echo $codigo; ?>'>
-    <p><input type="submit" value="Actualizar"></p>
-  </fieldset>
-</form>
+    <br>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+      </div>
+    </div>
+  </form>
+</div>
+
 
 <!-- DATA IN $_POST['dni']. Coming from a form submit -->
 <?php else: ?>
