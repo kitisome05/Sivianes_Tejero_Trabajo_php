@@ -145,12 +145,12 @@
           <p><a href='remolques.php?tipo="remolques"'<p id="imagen-position">Remolques</p></a></p>
         </div>
         <div class="col-md-4">
-          <a href='ordeñadoras.php?tipo=ordeñadoras'><img src="imagenes/ordeñadoras/1.jpg" id="imagen-tamaño"></a>
+          <a href='ordeñadoras.php?tipo=ordeñadoras'><img src="imagenes/ordenadoras/1.jpg" id="imagen-tamaño"></a>
           <p><a href='ordeñadoras.php?tipo="ordeñadoras"'<p id="imagen-position">Ordeñadoras</p></a></p>
         </div>
         <div class="col-md-4">
           <a href='mezclador.php?tipo=mezclador'><img src="imagenes/mezclador/1.PNG" id="imagen-tamaño"></a>
-          <p><a href='mezclador.php?tipo="mezclador"'<p id="imagen-position">Mezclador</p></a></p>
+          <p><a href='mezclador.php?tipo=mezclador'<p id="imagen-position">Mezclador</p></a></p>
         </div>
       </div>
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

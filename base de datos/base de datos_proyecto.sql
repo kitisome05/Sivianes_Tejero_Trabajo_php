@@ -64,13 +64,18 @@ insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, con
 INSERT INTO clientes (cod_cliente,nombre, apellidos, telefono, direccion, roll, usuario, contrasena) VALUES(null,'admin','admin','696859185','admin','admin','admin',md5('admin'));
 alter table clientes change contraseña contrasena varchar(255);
 select * from clientes where usuario='edu' and contrasena=md5('202cb962ac59075b964b07152d234b70');
-describe clientes;
+select * from clientes;
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select roll from clientes where usuario='admin' and contrasena=md5('admin');
 select * from productos;
-select * from proveedores;
+select * from ventas;
+describe ventas;
 SELECT * from productos where cod_producto='2';
 
 SELECT * from productos WHERE tipo='ordeñadoras';
 
 delete from productos where cod_producto='11';
+SELECT * from ventas where cod_ventas='5';
+update ventas set cod_cliente='4',fecha='2018-02-17', valor_total='100000' WHERE cod_producto='6';
+SELECT * from productos where cod_producto=1;
+select * from clientes;

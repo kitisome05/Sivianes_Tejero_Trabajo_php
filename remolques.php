@@ -100,22 +100,24 @@
 
     <table>
       <?php
+
         while($obj = $result->fetch_object()) {
-          echo "<tr>";
-            echo "<td><img src=".$obj->imagen."></td>";
-          echo "</tr>";
-          echo "<tr>";
-            echo "<td>".$obj->nombre."</td>";
-          echo "</tr>";
-          echo "<tr>";
-            echo "<td>".$obj->descripcion."</td>";
-          echo "</tr>";
-          echo "<tr>";
-            echo "<td>".$obj->precio_unidad."</td>";
-            echo "<td><a class='addtocart' href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'>Añadir al carro</a></td>";
-          echo "</tr>";
-        //  echo "<a href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'><button type='button'>Añadir al carro</button></a>";
+              echo "<tr>";
+                echo "<td><img src=".$obj->imagen."></td>";
+              echo "</tr>";
+              echo "<tr>";
+                echo "<td>".$obj->nombre."</td>";
+              echo "</tr>";
+              echo "<tr>";
+                echo "<td>".$obj->descripcion."</td>";
+              echo "</tr>";
+              echo "<tr>";
+                echo "<td>".$obj->precio_unidad."</td>";
+                echo "<td><a class='addtocart' href='add_to_cart.php?cod_producto=".$obj->cod_producto."' id='boton'>Añadir al carro</a></td>";
+              echo "</tr>";
+
         }
+
 ?>
         <?php
         $result->close();

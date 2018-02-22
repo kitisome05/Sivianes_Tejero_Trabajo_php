@@ -89,20 +89,30 @@
    </tr>
  </thead>
  <?php
- var_dump($_SESSION["carrito"]);
- if (isset($_POST["compra"])) {
-   foreach ($_SESSION['carrito'] as $key => $value) {
-     $query="SELECT * from productos where cod_producto=$key";
-     if ($result = $connection->query($query))  {
-       $obj = $result->fetch_object();
-            echo "insert into ventas (valor_total) values ('$key*$value')";
-          }
+ $user = $_SESSION["codigo"];
+
+   ?>
+   <?php
+   if(isset($_POST['comprar'])) {
+     $valor=0;
+
+     foreach ($_SESSION['carrito'] as $key => $value) {
+       $query="SELECT * from productos where cod_producto=$key";
+       if ($result = $connection->query($query))  {
+         $obj = $result->fetch_object();
+         $valor+=$obj->precio_unidad*$value;
+       }
+
+      }
+
+$query="insert into ventas (cod_cliente, fecha, valor_total) values ('$user', 'curdate()','$valor')";
+if ($result = $connection->query($query))  {
+  unset($_SESSION['carrito']);
+  header("Location: /Sivianes_Tejero_Trabajo_php/principal.php");
+}
 
    }
- }else ?>
 
-
-   <?php
  foreach ($_SESSION['carrito'] as $key => $value) {
    # code...
   // echo "{$key} => {$value}";
@@ -120,12 +130,17 @@
 
     }
   }
-echo "<input type='submit' name='comprar' value='comprar' onclick='comprar()'/>";
 
+?>
+ <form method="post">
+   <input type="submit" name="comprar" value="comprar">
+</form>
+<?php
       $result->close();
       unset($obj);
       unset($connection);
 ?>
+
 </table>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
