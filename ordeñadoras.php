@@ -19,7 +19,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container">
     <?php //Conexion
           $connection = new mysqli("localhost", "root", "Admin2015", "agromoise", 3316);
           $connection->set_charset("utf8");
@@ -36,7 +36,6 @@
   $v1=0;
   if (isset($_SESSION["roll"])) {
     $v1 = $_SESSION["roll"];
-    echo ($v1);
   }
   if (isset($_SESSION['roll'])) {
     ?>
@@ -56,7 +55,7 @@
           $v1=0;
           if (isset($_SESSION["roll"])) {
           $v1 = $_SESSION["roll"]; ?>
-
+                  <span id="quantity">0</span><a href="carrito.php">Comprar</a>
                   <a class="nav-link" href="carrito.php"><img src="imagenes/iconos/carrito.jpg" id='icono'><span class="sr-only">(current)</span></a>
 
 
@@ -69,9 +68,6 @@
       </div>
     </nav>
 
-    <a href="principal.php" id="boton">Inicio</a>
-    <a href="admin/logout.php" id="boton">Cerrar sesion</a>
-    <span id="quantity">0</span><a href="carrito.php">Comprar</a>
 <?php
 } elseif (!isset($_SESSION['usuario'])) {
 ?>

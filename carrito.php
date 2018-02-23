@@ -69,29 +69,54 @@
               </ul>
             </div>
           </nav>
-        <?php } ?>
+        <?php } elseif (isset($_SESSION['roll']) && $_SESSION['roll']=='usuario') {?>
+          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="/Sivianes_Tejero_Trabajo_php/principal.php"><img src="/Sivianes_Tejero_Trabajo_php/imagenes/logo_actualizado.jpg" width="200" height="80"></a>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="principal.php">Inicio<span class="sr-only">(current)</span></a>
+                </li>
+              </div>
+              <div class="collapse navbar-collapse ml-5 pl-5" id="navbarNavDropdown">
+                <?php
+                $v1=0;
+                if (isset($_SESSION["roll"])) {
+                $v1 = $_SESSION["roll"]; ?>
 
+                        <a class="nav-link" href="carrito.php"><img src="imagenes/iconos/carrito.jpg" id='icono'><span class="sr-only">(current)</span></a>
+
+
+                        <?php echo ("<b>User:</b> $v1"); }?>
+
+
+                        <a class="nav-link" href="admin/logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
+
+              </ul>
+            </div>
+          </nav>
         <?php
-
-
-
-        //  printf("<p>The select query returned %d rows.</p>", $result->num_rows);
+}
  ?>
- <table style="border:1px solid black">
- <thead>
-   <tr><h2>Carrito</h2></tr>
-   <tr>
-     <th>Nombre</th>
-     <th>Tipo</th>
-     <th>Precio_unidad</th>
-     <th>Cantidad</th>
-     <th>Total Euros</th>
-   </tr>
- </thead>
+
  <?php
  $user = $_SESSION["codigo"];
-
+if (!empty($_SESSION['carrito'])) {
    ?>
+   <table style="border:1px solid black">
+   <thead>
+     <tr><h2>Carrito</h2></tr>
+     <tr>
+       <th>Nombre</th>
+       <th>Tipo</th>
+       <th>Precio_unidad</th>
+       <th>Cantidad</th>
+       <th>Total Euros</th>
+     </tr>
+   </thead>
    <?php
    if(isset($_POST['comprar'])) {
      $valor=0;
@@ -114,8 +139,6 @@ if ($result = $connection->query($query))  {
    }
 
  foreach ($_SESSION['carrito'] as $key => $value) {
-   # code...
-  // echo "{$key} => {$value}";
 
  $query="SELECT * from productos where cod_producto=$key";
   if ($result = $connection->query($query))  {
@@ -139,11 +162,21 @@ if ($result = $connection->query($query))  {
       $result->close();
       unset($obj);
       unset($connection);
-?>
+    }else {?>
+      <div class="alert alert-danger" role="alert">
+        <strong>Oh Vaya..!</strong> Parece que tienes el carrito vacío :(
+      </div>
+
+        <div class="alert alert-primary" role="alert">
+            <strong>No te preocupes!! </strong>Haz click <a href="principal.php">aquí</a> y empieza a comprar :)
+        </div>
+
 
 </table>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<?php  }
+?>
 </body>
 </html>
