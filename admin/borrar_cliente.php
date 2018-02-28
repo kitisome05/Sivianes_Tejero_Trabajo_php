@@ -1,5 +1,11 @@
 <?php
   session_start();
+  if ($_SESSION['roll']=='admin') {
+
+  }else {
+    session_destroy();
+    header("Location: /Sivianes_Tejero_Trabajo_php/principal.php");
+  }
   ?>
 <!DOCTYPE html>
 <html lang="en">

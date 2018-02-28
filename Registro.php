@@ -20,22 +20,54 @@
   <body class="container">
     <a href="principal.php"><img src="imagenes/logo_actualizado.jpg" id="logo-tamaño"></a>
     <?php if (!isset($_POST["usuario"])) : ?>
-      <form method="post">
-        <fieldset>
-          <legend id="registro">Registrate</legend>
-          <span>Nombre:</span><input type="text" name="nombre" required><br>
-          <span>Apellido:</span><input type="text" name="apellidos" required><br>
-          <span>Telefono:</span><input type="text" maxlength="9"  name="telefono" required><br>
-          <span>Dirección:</span><input type="text" name="direccion"><br>
-          <span>Nombre de usuario:</span><input type="text" name="usuario" required><br>
-          <span>Contraseña:</span><input type="password" name="contrasena" required><br>
 
+      <div class="container">
+        <form method="post">
+          <div class="form-group row">
+            <label for="inlineFormInput" class="col-sm-2 col-form-label">Nombre</label>
+            <div class="col-sm-10">
+              <input type="text" name="nombre" class="form-control" id="inlineFormInput" placeholder="Nombre">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inlineFormInput" class="col-sm-2 col-form-label">Apellidos</label>
+            <div class="col-sm-10">
+              <input type="text" name="apellidos" class="form-control" id="inlineFormInput" placeholder="Apellidos">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inlineFormInput" class="col-sm-2 col-form-label">Teléfono</label>
+            <div class="col-sm-10">
+              <input type="text" name="telefono" maxlength="9" class="form-control" id="inlineFormInput" placeholder="123456789">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inlineFormInput" class="col-sm-2 col-form-label">Dirección</label>
+            <div class="col-sm-10">
+              <input type="text" name="direccion" class="form-control" id="inlineFormInput" placeholder="c/'Nombre de la calle'">
+            </div>
+          </div>
+          <div class="form-group row">
+      <label for="inlineFormInput" class="col-sm-2 col-form-label">Usuario</label>
+      <div class="col-sm-10">
+        <input type="text" name="usuario" class="form-control" id="inlineFormInput" placeholder="Usuario">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+      <div class="col-sm-10">
+        <input type="password" name="contrasena" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+    </div>
+          <br>
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <button type="submit" class="btn btn-primary">Añadir</button>
+            </div>
+          </div>
+        </form>
+      </div>
 
-
-
-          <p id="registro"><input type="submit" value="Enviar"></p>
-        </fieldset>
-      </form>
     <?php else: ?>
 
       <?php
