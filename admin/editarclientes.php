@@ -17,7 +17,7 @@
       }
     </style>
   </head>
-  <body>
+  <body class="container">
     <?php
       if (empty($_GET)) {
         echo "No se han recibido datos del producto";
@@ -55,7 +55,7 @@
 
               <?php echo ("<b>User:</b> $v1"); }?>
 
-            <a class="nav-link" href="admin/logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
 
           </ul>
         </div>

@@ -26,15 +26,7 @@
     ?>
 
     <?php
-
-
-      // if($_SESSION['roll']=='admin') {
-
-       //}
-
-       if (!isset($_SESSION['usuario'])) {
-
-       }
+       if (!isset($_SESSION['usuario'])) {}
 
       $v1=0;
       if (isset($_SESSION["roll"])) {
@@ -60,7 +52,7 @@
 
               <?php echo ("<b>User:</b> $v1"); }?>
 
-            <a class="nav-link" href="admin/logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="logout.php">Cerrar Session<span class="sr-only">(current)</span></a>
 
           </ul>
         </div>
@@ -105,6 +97,7 @@
           exit();
         }
         ?>
+
         <div class="container">
           <legend>Edición del Producto</legend>
           <form method="post">
