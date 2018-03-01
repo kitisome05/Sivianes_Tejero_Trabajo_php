@@ -13,8 +13,6 @@ contrasena varchar (255)
 );
 drop table proveedores;
 
-describe clientes;
-
 alter table productos
 modify tipo  enum('remolques','ordeñadoras','mezclador');
 
@@ -45,37 +43,13 @@ cod_proveedor int(11),
 foreign key fk1 (cod_proveedor) references proveedores (cod_proveedor)
 );
 alter table productos add imagen varchar(255);
-select * from productos;
-SELECT * from productos WHERE tipo='remolques';
-insert into productos (tipo, nombre, descripcion, precio_unidad, cod_proveedor) 
-values ('mezclador', '1,5 M', 'Este es el mezclador mas pequeño que tenemos 1,5 M','900€','1');
-INSERT INTO VEHICULOS(nombre,tipo,descripcion,precio_unidad,cod_proveedor) VALUES ('ejemplo','remolque','hola','12','1')
-SELECT * from productos WHERE tipo="ordeñadoras";
-SELECT * from productos WHERE tipo="remolques";
 
 create table proveedores (
 cod_proveedor int(11) primary key auto_increment,
 nombre varchar(255)
 );
-insert into proveedores (cod_proveedor, nombre) values (null, 'romsan');
+
 alter table contiene add primary key (cod_ventas, cod_producto);
 select * from clientes;
-insert into clientes (nombre, apellidos, telefono, direccion, roll, usuario, contraseña) values ('admin', 'admin', '696859185', 'Caño Ronco Nº 29', 'admin', 'admin', 'admin' );
-INSERT INTO clientes (cod_cliente,nombre, apellidos, telefono, direccion, roll, usuario, contrasena) VALUES(null,'admin','admin','696859185','admin','admin','admin',md5('admin'));
+
 alter table clientes change contraseña contrasena varchar(255);
-select * from clientes where usuario='edu' and contrasena=md5('202cb962ac59075b964b07152d234b70');
-select * from clientes;
-select roll from clientes where usuario='admin' and contrasena=md5('admin');
-select roll from clientes where usuario='admin' and contrasena=md5('admin');
-select * from productos;
-select * from ventas;
-describe ventas;
-SELECT * from productos where cod_producto='2';
-
-SELECT * from productos WHERE tipo='ordeñadoras';
-
-delete from productos where cod_producto='11';
-SELECT * from ventas where cod_ventas='5';
-update ventas set cod_cliente='4',fecha='2018-02-17', valor_total='100000' WHERE cod_producto='6';
-SELECT * from productos where cod_producto=1;
-select * from clientes;
